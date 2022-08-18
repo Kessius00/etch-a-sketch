@@ -1,3 +1,25 @@
 body{
     font-family: 'Helvetica Neue', sans-serif;
+    background-color: rgb(255, 251, 237);
+    text-align: center;
+    color: rgb(46, 0, 0);
+}
+
+.row{
+    height: 30px;
+    width: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+
+.box{
+    height: auto;
+    width: 30px;
+    background-color: white;
+}
+
+.boxhovered{
+    background-color: rgb(18, 18, 12);
 }
