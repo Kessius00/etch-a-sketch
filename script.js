@@ -12,15 +12,21 @@ function row(){
 };
 
 row();
-const boxes = document.querySelectorAll('.box');
 
-// console.log(boxes)
+const boxes = document.querySelectorAll('.box');
 
 boxes.forEach( (box) => {
     box.addEventListener('mouseover', () => {
+        // box.style.cssText = "background-color: green;";
         box.classList.toggle('boxhovered');
     });
     box.addEventListener('mouseout', () => {
         box.classList.toggle('boxhovered');
     });
 });
+
+
+const slideContainer = document.createElement('div');;
+const sliderInput = document.getElementsByClassName('.slider');
+
+console.log(sliderInput);
