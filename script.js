@@ -13,25 +13,26 @@ slider.addEventListener('input', () => {
     const boxAmount = slider.value;
     sliderValue.textContent = boxAmount;
     //Update the grid
-    boxContainer.forEach((box) => {
-        boxContainer.removeChild(box);
-    });
-    // grid(boxAmount);
+    while (boxContainer.firstChild) {
+        boxContainer.removeChild(boxContainer.lastChild);
+    };
 
+    grid(boxAmount);
+    mouseHoverColor();
 
 });
 
 
 
 // Make grid with optional parameter (sqrt of amount of boxes)
-function grid(boxAmount=16){
+function grid( boxAmount = 16 ){
     for (let i=0; i<boxAmount; i++){
-        const row = document.createElement('div');
+        let row = document.createElement('div');
         row.classList.toggle('row');
         row.style.cssText = `width: 500px; height: ${500/boxAmount}px;`
         boxContainer.appendChild(row);
         for (let i=0; i<boxAmount; i++){
-            const divBox = document.createElement('div');
+            let divBox = document.createElement('div');
             divBox.classList.toggle('box');
             divBox.style.cssText = `width: ${500/boxAmount}px; height: auto;`
             row.appendChild(divBox);
@@ -39,26 +40,32 @@ function grid(boxAmount=16){
     };
 };
 
-
+mouseHoverColor()
 
 // Adding eventListener to all the tiny boxes on the grid: if hover, change backgroundcolor
-const boxes = document.querySelectorAll('.box');
-boxes.forEach( (box) => {
-    box.addEventListener('mouseover', () => {
-    box.classList.toggle('boxhovered');
-    // Trying to have each box have a randomColor
-    // const newColor = randomColor();
-    // box.style.cssText = `background-color: ${newColor};`;
 
+function mouseHoverColor(){ 
+    //user still has to be able to choose the color or choose randomColor
+    
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach( (box) => {
+        box.addEventListener('mouseover', () => {
+        // box.classList.toggle('boxhovered');
+        // Trying to have each box have a randomColor
+        box.style.backgroundColor = randomColor();
+        });
+
+        box.addEventListener('mouseout', () => {
+        // box.classList.toggle('boxhovered');
+        box.style.backgroundColor = 'white';
+        });
     });
-    box.addEventListener('mouseout', () => {
-    box.classList.toggle('boxhovered');
-    });
-});
+};
 
 
 
 function randomColor(listOfColors=['black']){
+    //function which returns a random color from a list of colors
     if (listOfColors.length === 1){
         listOfColors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
 		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
