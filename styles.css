@@ -3,11 +3,14 @@ body{
     background-color: rgb(255, 251, 237);
     text-align: center;
     color: rgb(46, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
+
 .row{
-    height: 30px;
-    width: auto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -17,20 +20,20 @@ body{
     width: 150px;
     height: 20px;
     opacity: 0.7;
-    /* outline: none; */
 }
 
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
 
+.boxContainer{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
 
 .box{
-    height: auto;
-    width: 30px;
     background-color: white;
 }
 
 .boxhovered{
-    background-color: rgb(18, 18, 12);
+    background-color: #66994D;
 }
