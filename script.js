@@ -3,6 +3,13 @@ const sliderContainer = document.querySelector('.sliderContainer');
 const sliderValue = document.createElement('div');
 const slider = document.querySelector('.slider');
 const boxContainer = document.querySelector('.boxContainer');
+const color = document.querySelector('#head');
+const randBtn = document.querySelector('#randBtn');
+let pointerColor = '#000000';
+let randBtnOn = false;
+
+
+
 
 //IMPORT SLIDERVALUE IN HTML
 sliderValue.textContent = slider.value;
@@ -10,14 +17,20 @@ sliderValue.classList.toggle('slidervalue');
 sliderContainer.appendChild(sliderValue);
 
 // DEFAULT GRID 
-grid();
-changeColorHover();
+grid(); changeBackgroundColor();
+
+//EVENT LISTENERS
+slider.addEventListener('input', refreshGrid);
+// color.addEventListener('input', changeColor());
+randBtn.addEventListener('click', btnStatusChange);
 
 
-slider.addEventListener('input', () => {
-    // Update the current slider value (each time you drag the slider handle)
-    
-    //NEW AMOUNT OF BOXES
+
+//FUNCTIONS
+
+function refreshGrid(){
+    //removes current grid, adds new grid based on slidervalue
+
     const boxAmount = slider.value;
     sliderValue.textContent = boxAmount;
 
@@ -27,15 +40,11 @@ slider.addEventListener('input', () => {
     };
 
     //NEW GRID
-    // boxAmount = Math.sqrt(boxAmount)     TO MAKE THE BOXES BIGGER
+    // boxAmount = Math.sqrt(boxAmount)     optional: IT IS TO MAKE THE BOXES BIGGER
     grid(boxAmount);
-    changeColorHover();
+    changeBackgroundColor();
+};
 
-});
-
-
-
-//FUNCTIONS
 function grid( boxAmount = 16 ){
     // Make grid with optional parameter (sqrt of amount of boxes)
     for (let i=0; i<boxAmount; i++){
@@ -52,19 +61,19 @@ function grid( boxAmount = 16 ){
     };
 };
 
-function changeColorHover(){ 
+function changeBackgroundColor(){ 
     // Adding eventListener to all the tiny boxes on the grid: if hover, change backgroundcolor
     
     const boxes = document.querySelectorAll('.box');
     boxes.forEach( (box) => {
         box.addEventListener('mouseover', () => {
-        // box.classList.toggle('boxhovered');
-        // Trying to have each box have a randomColor
-        box.style.backgroundColor = randomColor();
+
+        if (randBtnOn === true){
+            box.style.backgroundColor = randomColor();    
+        } else box.style.backgroundColor = pointerColor;
         });
 
         box.addEventListener('mouseout', () => {
-        // box.classList.toggle('boxhovered');
         box.style.backgroundColor = 'white';
         });
     });
@@ -88,3 +97,15 @@ function randomColor(listOfColors=['black']){
     const index = Math.floor(Math.random()*listOfColors.length);
     return listOfColors[index]
 };
+
+function btnStatusChange(){
+    if (randBtnOn===true){
+        randBtnOn=false;
+    } else randBtnOn = true;
+};
+
+// function changeColor(){
+//     const colorValue = color.value;
+    
+//     return 
+// };
