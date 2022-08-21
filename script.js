@@ -1,51 +1,59 @@
-// Constants
+// CONSTANTS
 const sliderContainer = document.querySelector('.sliderContainer');
 const sliderValue = document.createElement('div');
 const slider = document.querySelector('.slider');
 const boxContainer = document.querySelector('.boxContainer');
 
-sliderValue.textContent = slider.value; // Display the default slider value
+//IMPORT SLIDERVALUE IN HTML
+sliderValue.textContent = slider.value;
+sliderValue.classList.toggle('slidervalue');
 sliderContainer.appendChild(sliderValue);
-grid();
 
-// Update the current slider value (each time you drag the slider handle)
+// DEFAULT GRID 
+grid();
+changeColorHover();
+
+
 slider.addEventListener('input', () => {
+    // Update the current slider value (each time you drag the slider handle)
+    
+    //NEW AMOUNT OF BOXES
     const boxAmount = slider.value;
     sliderValue.textContent = boxAmount;
-    //Update the grid
+
+    //REMOVE CURRENT GRID
     while (boxContainer.firstChild) {
         boxContainer.removeChild(boxContainer.lastChild);
     };
 
+    //NEW GRID
+    // boxAmount = Math.sqrt(boxAmount)     TO MAKE THE BOXES BIGGER
     grid(boxAmount);
-    mouseHoverColor();
+    changeColorHover();
 
 });
 
 
 
-// Make grid with optional parameter (sqrt of amount of boxes)
+//FUNCTIONS
 function grid( boxAmount = 16 ){
+    // Make grid with optional parameter (sqrt of amount of boxes)
     for (let i=0; i<boxAmount; i++){
         let row = document.createElement('div');
         row.classList.toggle('row');
-        row.style.cssText = `width: 500px; height: ${500/boxAmount}px;`
+        row.style.cssText = `width: 600px; height: ${600/boxAmount}px;`
         boxContainer.appendChild(row);
         for (let i=0; i<boxAmount; i++){
             let divBox = document.createElement('div');
             divBox.classList.toggle('box');
-            divBox.style.cssText = `width: ${500/boxAmount}px; height: auto;`
+            divBox.style.cssText = `width: ${600/boxAmount}px; height: auto;`
             row.appendChild(divBox);
         };
     };
 };
 
-mouseHoverColor()
-
-// Adding eventListener to all the tiny boxes on the grid: if hover, change backgroundcolor
-
-function mouseHoverColor(){ 
-    //user still has to be able to choose the color or choose randomColor
+function changeColorHover(){ 
+    // Adding eventListener to all the tiny boxes on the grid: if hover, change backgroundcolor
     
     const boxes = document.querySelectorAll('.box');
     boxes.forEach( (box) => {
@@ -61,8 +69,6 @@ function mouseHoverColor(){
         });
     });
 };
-
-
 
 function randomColor(listOfColors=['black']){
     //function which returns a random color from a list of colors

@@ -5,6 +5,11 @@ The goal was to create a screen for a person to make pixelart on, where the pixe
 # Lessons Learned 💭
 
 # Optimization ✅
+- Make range slider beautiful
+add more css for more beauty
+
+
+
 
 # Tech Used 💻
 HTML5 CSS JavaScript
