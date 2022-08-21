@@ -11,6 +11,7 @@ let randBtnOn = false;
 
 
 
+
 //IMPORT SLIDERVALUE IN HTML
 sliderValue.textContent = slider.value;
 sliderValue.classList.toggle('slidervalue');
@@ -22,6 +23,7 @@ grid(); changeBackgroundColor();
 //EVENT LISTENERS
 slider.addEventListener('input', refreshGrid);
 randBtn.addEventListener('click', btnStatusChange);
+
 // color.addEventListener('input', changeColor);
 
 
@@ -63,13 +65,13 @@ function grid( boxAmount = 16 ){
 
 function changeBackgroundColor(){ 
     // Adding eventListener to all the tiny boxes on the grid: if hover, change backgroundcolor
-    
     const boxes = document.querySelectorAll('.box');
     boxes.forEach( (box) => {
         box.addEventListener('mouseover', () => {
 
         if (randBtnOn === true){
-            box.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;    
+            
+            box.style.backgroundColor = randomizeColor(true);    
         } else box.style.backgroundColor = pointerColor;
         });
 
@@ -79,6 +81,16 @@ function changeBackgroundColor(){
     });
 };
 
+function paint(){
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach( (box) => {
+        box.addEventListener('click', ()=>{
+            if (randBtnOn === true){
+            box.style.backgroundColor = randomizeColor(true);    
+            } else box.style.backgroundColor = pointerColor;
+        });
+    });
+}
 
 function btnStatusChange(){
     if (randBtnOn===true){
@@ -86,8 +98,17 @@ function btnStatusChange(){
     } else randBtnOn = true;
 };
 
-function changeColor(){
-    const colorValue = color.value;
+// function changeColor(){
+//     const colorValue = color.value;
     
-    return true
+//     return true
+// };
+
+function randomizeColor(inColor){
+    //if inColor === true, do the randomizer in color, otherwise its a shade of grey
+    if (inColor){
+        return `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+    } 
+    const amountOfDarkness = Math.random()*255;
+    return `rgb(${amountOfDarkness}, ${amountOfDarkness}, ${amountOfDarkness})`;
 };
