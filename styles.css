@@ -1,11 +1,38 @@
+@font-face {
+  font-family: "silkscreen";
+  src: url("./Silkscreen-Regular.ttf")
+}
+
 body{
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: rgb(255, 251, 237);
+    font-family: silkscreen, Arial, Helvetica, sans-serif;
+    color: rgb(174, 132, 214);
+    background-color: rgb(30, 11, 71);
     text-align: center;
-    color: rgb(46, 0, 0);
+    color: rgb(112, 112, 112);
     
 }
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    padding: 20px;
+
+    font-family: silkscreen, Arial, Helvetica, sans-serif;
+    font-size: small;
+    
+    border-radius: 6px;
+    border-width: 3px;
+    border: rgb(247, 33, 25);
+    border-style: solid;
+    background-color: rgb(215, 255, 242);
+}
+
+
 h1{
+    color: aqua;
     font-size: 50px;
 }
 
@@ -14,12 +41,34 @@ h1{
     font-weight: 800;
 }
 
+div.boxContainer{
+    border: #e2ffd3;
+    padding: 20px;
+    background-color: rgb(50, 44, 62);;
+    border-style: solid;
+}
+#head{
+    padding: 20px;
+}
+
+.colorpicker{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 200px;
+}
+
+
+#colorChoose{
+    width: auto;
+}
+
 .content{
     margin-top: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
 }
 
@@ -37,8 +86,8 @@ h1{
 
 
 .boxContainer{
-    height: 600px;
-    width: 600px;
+    height: 500;
+    width: 500px;
     display: flex;
     flex-direction: column;
 }

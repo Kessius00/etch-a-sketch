@@ -6,6 +6,11 @@ The goal was to create a screen for a person to make pixelart on, where the pixe
 
 # Optimization ✅
 - Make range slider beautiful
+- randomize shade grey
+- incrementally darken 10%
+- pick a color
+- 
+
 add more css for more beauty
 
 
