@@ -19,6 +19,12 @@ body{
     border-width: 2px;
     border-radius: 10px;
     border-style: solid;
+
+    display: grid;
+    gap: 1px;
+
+
+
 }
 
 .sliderContainer{
@@ -26,8 +32,9 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 10px;
+    gap: 15px;
 }
+
 
 
 .colorpicker{
@@ -53,13 +60,17 @@ input[type='color'] {
 input[type='color']::-webkit-color-swatch {
   border: none;
   border-radius: 5px;
-  box-shadow: rgba(156, 4, 250, 0.428) 1px -1px 10px;
+  box-shadow: rgb(156, 4, 250) 0px 0px 20px;
 }
 
 .box{
-    border-style: solid;
-    border-radius: 3px;
-    background-color: rgb(235, 214, 255);
+    /* border-style: solid; */
+    border-radius: 1px;
+    background-color: rgb(246, 236, 255);
+}
+
+.box:hover{
+  background-color: rgb(255, 255, 255);
 }
 
 .content{
@@ -93,7 +104,7 @@ button{
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     input[type='range'] {
       overflow: hidden;
-      width: 200px;
+      width: 185px;
       -webkit-appearance: none;
 
       background-color: rgb(195, 170, 255);
