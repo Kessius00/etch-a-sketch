@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "Silkscreen";
   src: url("./fonts/Silkscreen-Regular.ttf");
@@ -23,9 +24,12 @@ body{
     display: grid;
     gap: 1px;
 
-
-
 }
+
+.gridSize{
+  font-size: larger;
+}
+
 
 .sliderContainer{
     display: flex;
@@ -35,6 +39,9 @@ body{
     gap: 15px;
 }
 
+.link{
+  margin-top: 50px;
+}
 
 
 .colorpicker{
@@ -64,7 +71,6 @@ input[type='color']::-webkit-color-swatch {
 }
 
 .box{
-    /* border-style: solid; */
     border-radius: 1px;
     background-color: rgb(246, 236, 255);
 }
@@ -79,26 +85,30 @@ input[type='color']::-webkit-color-swatch {
     align-items: center;
 }
 
+.buttonpressed{
+  background-color: rgb(79, 0, 125);
+  color: rgb(234, 225, 255);
+  
+}
 
 button{
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: rgb(234, 225, 255);
-    color: rgb(79, 0, 125);
-
     border: rgb(79, 0, 125);
     border-radius: 10px;
     border-style: solid;
     border-width: 3px;
+
+    background-color: rgb(234, 225, 255);
+    color: rgb(79, 0, 125);
 
     height: 35px;
     width: 300px;
 
     font-family: Silkscreen, Arial, Helvetica, sans-serif;
 }
-
 
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
