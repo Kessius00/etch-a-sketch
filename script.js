@@ -40,8 +40,6 @@ mouseDrawing();
 
 
 
-
-
 //FUNCTIONS
 function mouseDrawing(){
     divBox.forEach( (box) => {
