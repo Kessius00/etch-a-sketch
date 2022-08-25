@@ -1,6 +1,8 @@
 # etch-a-sketch
 The goal was to create a screen for a person to make pixelart on, or to just go wild with a random color or random shade. Or even make the shade incrementally darken based on how many times you have drawn over the pixel!
 
+[Try it out!](https://kessius00.github.io/etch-a-sketch/)
+
 # Lessons Learned
 I used button:active for the fist time and how to get a color from input type color, also how to use input type range. I also used CSS grid for the first time! 
 
