@@ -37,7 +37,7 @@ function mouseDrawing(){
         box.addEventListener('mouseover', () => {
             if (mouseDown) {
                 changeBackground(selectedButton, box);
-            }
+            };
         });
     });
 }
@@ -59,7 +59,7 @@ function changeBackground(selectedButton, box){
         case 'incDark':
             incrementallyDarken(box);
             break;
-};
+    };
 }
 
 function incrementallyDarken(box){
@@ -67,10 +67,13 @@ function incrementallyDarken(box){
     if (box.value===undefined){
         box.value = 0;
     };
+
     box.value += 1; 
+
     if (box.value>10){
         box.style.backgroundColor = 'rgb(0,0,0)'
-    }
+    };
+
     switch(box.value){
         case 1:
             box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
@@ -111,7 +114,7 @@ function incrementallyDarken(box){
             brightness = darkness*0.1;
             box.style.backgroundColor = `rgb(${brightness}, ${brightness}, ${brightness})`;
             break;
-    }
+    };
 
 }
 
@@ -150,14 +153,12 @@ function displayGridSize(){
 }
 
 function removeCurrentGrid(){
-    //remove all Child Elements from the parent element (boxContainer in this case)
     while (boxContainer.firstChild) {
         boxContainer.removeChild(boxContainer.lastChild);
     };
 }
 
 function createDivs(amount=16){
-    // Make grid with optional parameter (sqrt of amount of boxes)
     for (let i=0; i<(amount**2); i++){
         let box = document.createElement('div');
         box.classList.toggle('box');
