@@ -3,18 +3,15 @@ const boxContainer = document.querySelector('.boxContainer');
 const slider = document.querySelector('.slider');
 const color = document.querySelector('#color');
 const gridSize = document.querySelector('.gridSize');
-//btns 
-// const btnIncDark = document.querySelector('#incDark');
-// const btnRandBtn = document.querySelector('#randBtn');
-// const btnShade = document.querySelector('#shadeBtn');
-// const btnEraser = document.querySelector('#eraser');
-// const btnChooseColor = document.querySelector('#colorChoose');
 const btns = document.querySelectorAll('button');
 let mouseDown = false; 
 let selectedButton = 'randBtn';
 let darkness = 255;
 
+//DEFAULT SETTINGS
+createDivs(); createGrid(16); displayGridSize();
 
+//EVENTLISTENERS
 document.body.addEventListener('mousedown', ()=>{
     mouseDown=true;
 });
@@ -22,12 +19,6 @@ document.body.addEventListener('mouseup', ()=>{
     mouseDown=false;
 });
 
-
-//DEFAULT SETTINGS
-createDivs(); createGrid(16); displayGridSize();
-
-
-//EVENTLISTENERS
 slider.addEventListener('input', refreshGrid);
 let divBox = document.querySelectorAll('.box');
 
@@ -35,10 +26,7 @@ btns.forEach((btn)=>{
     btn.addEventListener('click', selectBtn);
 });
 
-
 mouseDrawing();
-
-
 
 //FUNCTIONS
 function mouseDrawing(){
@@ -53,7 +41,6 @@ function mouseDrawing(){
         });
     });
 }
-
 
 function changeBackground(selectedButton, box){
     switch(selectedButton){
@@ -74,7 +61,6 @@ function changeBackground(selectedButton, box){
             break;
 };
 }
-
 
 function incrementallyDarken(box){
     let brightness = 0;
@@ -129,7 +115,6 @@ function incrementallyDarken(box){
 
 }
 
-
 function selectBtn(){
     const btn = document.querySelector(`#${this.id}`);
     btns.forEach((butn)=>{
@@ -142,7 +127,6 @@ function selectBtn(){
 }
 
 function refreshGrid(){
-    //refresh the grid dependent on the slidervalue
     removeCurrentGrid();
     createDivs(slider.value);
     createGrid(slider.value);
@@ -161,9 +145,7 @@ function selectPaintMethod(){
     });
 }
 
-
 function displayGridSize(){
-    //Display the size of the grid
     gridSize.textContent = `${slider.value}x${slider.value}`;
 }
 
