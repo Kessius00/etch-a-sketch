@@ -73,7 +73,6 @@ input[type='color']::-webkit-color-swatch {
 }
 
 .box{
-    /* border-radius: 1px; */
     background-color: rgb(246, 236, 255);
 }
 
